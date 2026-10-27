@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: auto; /* Lenis handles smoothing */
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+/* Arabic: swap the whole type system to IBM Plex Sans Arabic */
+html[dir="rtl"] body,
+html[lang="ar"] body {
+  font-family: var(--font-ar), var(--font-sans), system-ui, sans-serif;
+}
+html[lang="ar"] .font-display,
+html[dir="rtl"] .font-display {
+  font-family: var(--font-ar), var(--font-display), sans-serif;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Shared helpers */
+.edge {
+  padding-inline: clamp(1rem, 5vw, 6rem);
+}
+.hairline {
+  border-color: color-mix(in srgb, var(--ink, #0e0e0c) 12%, transparent);
+}
+
+/* Accessible focus */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid #b56a4f;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Mask reveal used across sections */
+.reveal-mask {
+  clip-path: inset(0 0 100% 0);
+}
+
+::selection {
+  background: #b56a4f;
+  color: #faf7f2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,20 @@
+/node_modules
+/.next
+/out
+/build
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+next-env.d.ts
+
+# logs, build caches, temp
+*.log
+*.tsbuildinfo
+.vercel
+.turbo
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
